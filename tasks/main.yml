@@ -1,0 +1,26 @@
+---
+- name: Install apache
+  yum:
+    name: "{{ pkg_name }}"
+    state: "{{ pkg_state }}"
+
+- name: Create index file
+  copy:
+    content: "Hello there!"
+    dest: "{{ apache_path }}"
+
+- name: Starting the service
+  service:
+    name: "{{ svc_name }}"
+    state: "{{ svc_state }}"
+
+- name: Creating a template
+  template:
+    src: devops.html.j2
+    dest: /var/www/html/
+
+- name: Creatingn a static file
+  copy:
+    src: shweta.html
+    dest: /var/www/html
+# tasks file for apache

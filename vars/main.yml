@@ -1,0 +1,7 @@
+---
+pkg_name: httpd
+pkg_state: present
+svc_name: httpd
+svc_state: started
+apache_path: /var/www/html/index.html
+# vars file for apache
